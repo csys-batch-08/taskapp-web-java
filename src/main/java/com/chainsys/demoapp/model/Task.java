@@ -5,6 +5,7 @@ import java.util.Date;
 public class Task {
 	
 	private String name;
+	private String createdBy;
 	private String priority;
 	private String status;
 	private Date createdDate;
@@ -13,6 +14,12 @@ public class Task {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getCreatedBy() {
+		return createdBy;
+	}
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
 	}
 	public String getPriority() {
 		return priority;
@@ -36,9 +43,10 @@ public class Task {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Task(String name, String priority, String status, Date createdDate) {
+	public Task(String name, String createdBy, String priority, String status, Date createdDate) {
 		super();
 		this.name = name;
+		this.createdBy = createdBy;
 		this.priority = priority;
 		this.status = status;
 		this.createdDate = createdDate;

@@ -1,0 +1,34 @@
+@charset "ISO-8859-1";
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+.header{
+	
+	align-content: center;
+	text-align: center
+}
+body
+{
+	background-color: gray;
+}
+.content {
+	width:50%;
+	top:100px;
+	left:25%;
+	position: fixed;
+	padding-top: 50px;
+	
+}
+
+.footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+}
