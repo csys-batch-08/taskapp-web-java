@@ -31,20 +31,23 @@ public class EditTaskServlet extends HttpServlet {
 		User user = (User) session.getAttribute("user");
 		if (user == null) {
 			response.getWriter().write("<script>alert('Login First');location='login.jsp';</script>");
-			request.getRequestDispatcher("login.jsp").include(request, response);
+			request.getRequestDispatcher("/login.jsp").include(request, response);
 			
 		} else {
+			if(request.getParameter("tname")!=null && request.getParameter("priority")!=null && request.getParameter("status")!=null)
+			{
 			String taskName = request.getParameter("tname");
 			String priority = request.getParameter("priority");
 			String status=request.getParameter("status");
-			Task task = new Task(taskName, user.getName(), priority, status, null);
+			Task task = new Task(0,taskName, user.getName(), priority, status, null);
 			boolean result = TaskDAO.getInstance().updateTaskPriority(task);
 			if (!result) {
 				response.getWriter().write("<script>alert('only pending task can be modified');location='showtasks.jsp';</script>");
-				request.getRequestDispatcher("showtasks.jsp").include(request, response);
+				request.getRequestDispatcher("/showtasks.jsp").include(request, response);
 			} else {
 				response.getWriter().write("<script>alert('Task updated Successfully');location='showtasks.jsp';</script>");
-				request.getRequestDispatcher("showtasks.jsp").include(request, response);
+				request.getRequestDispatcher("/ShowTaskServlet").include(request, response);
+			}
 			}
 		}
 	}

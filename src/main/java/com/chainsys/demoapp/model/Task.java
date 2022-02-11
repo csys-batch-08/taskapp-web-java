@@ -4,11 +4,18 @@ import java.util.Date;
 
 public class Task {
 	
+	private int taskId;
 	private String name;
 	private String createdBy;
 	private String priority;
 	private String status;
 	private Date createdDate;
+	public int getTaskId() {
+		return taskId;
+	}
+	public void setTaskId(int taskId) {
+		this.taskId = taskId;
+	}
 	public String getName() {
 		return name;
 	}
@@ -43,8 +50,14 @@ public class Task {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Task(String name, String createdBy, String priority, String status, Date createdDate) {
+	@Override
+	public String toString() {
+		return "Task [taskId=" + taskId + ", name=" + name + ", createdBy=" + createdBy + ", priority=" + priority
+				+ ", status=" + status + ", createdDate=" + createdDate + "]";
+	}
+	public Task(int taskId, String name, String createdBy, String priority, String status, Date createdDate) {
 		super();
+		this.taskId = taskId;
 		this.name = name;
 		this.createdBy = createdBy;
 		this.priority = priority;

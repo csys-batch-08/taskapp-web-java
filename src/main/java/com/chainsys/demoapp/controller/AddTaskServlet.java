@@ -34,20 +34,20 @@ public class AddTaskServlet extends HttpServlet {
 		User user = (User) session.getAttribute("user");
 		if (user == null) {
 			response.getWriter().write("<script>alert('Login First');location='login.jsp';</script>");
-			request.getRequestDispatcher("login.jsp").include(request, response);
+			request.getRequestDispatcher("/login.jsp").include(request, response);
 			
 		} else {
 			String taskName = request.getParameter("tname");
 			String priority = request.getParameter("priority");
-			Task task = new Task(taskName, user.getName(), priority, "Pending", new Date());
+			Task task = new Task(0,taskName, user.getName(), priority, "Pending", new Date());
 			boolean result = TaskDAO.getInstance().insertTask(task);
 			if (!result) {
 				response.getWriter().write("<script>alert('Something went wrong try after some time');location='addTask.jsp';</script>");
-				request.getRequestDispatcher("addTask.jsp").include(request, response);
+				request.getRequestDispatcher("/addTask.jsp").include(request, response);
 			} else {
 				response.getWriter().write("<script>alert('Task Added Successfully');location='showtasks.jsp';</script>");
-				request.getRequestDispatcher("showtasks.jsp").include(request, response);
-				response.sendRedirect("showtasks.jsp");
+				request.getRequestDispatcher("ShowTaskServlet").include(request, response);
+				
 			}
 		}
 	}

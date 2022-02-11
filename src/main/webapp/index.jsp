@@ -8,7 +8,7 @@
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link href="asserts/css/style.css" rel="stylesheet">
-<script type="text/javascript" src="index.js"></script>
+<script type="text/javascript" src="asserts/js/index.js"></script>
 
 </head>
 <body>
